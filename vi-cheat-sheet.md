@@ -150,7 +150,7 @@ q               Stop recording
 ```
 
 ## Regular Expressions (RE)
-This is not an ehaustive list of all RE expressions, see help for all.
+This is not an exhaustive list of all RE expressions, see help for all.
 ```
 .           Any single character except newline
 *           Zero or more occurrences of any character
@@ -173,29 +173,24 @@ $           Anchor – end of the line
 [q,b,5,1]   Set containing q b 5 1
 [./=+]      Set containing . / = +
 [-A-F]      Capital A to Capital F (dash must be first)
-[0-9 A-Z]   Capital letters, digits, and space
-[A-Z][a-zA-Z]
-            First char A–Z, second char any letter
+[0-9 A-F]   Digits + space + A thru F
+[D-U][c-k]  First char any capital letter D thru U, second char lower case only c thru k
 ```
 
-## RE - Examples
+## RE - Search Examples
 ```
-/Hello/         Match Hello
-/^a/            Match letter a but only ones at at start of line
-/.x/            Match any char followed by x
-/.x*/           Match all text from x to the right
-/34$/           Match only 34 at end of line
-/^TEST$/        Match only lines containing only TEST and not other chars
-/^[a-zA-Z]/     Match only the first char on a line that starts with a letter (lower or upper case)
-/^[a-z].*/      Match all chars on lines that start with lower case a–z
+/Hello          Match Hello - note that regular expressions are case sensitive
+/^a             Match letter a but only ones at at start of line
+/.x             Match any char followed by x
+/.x*            Match all text from x to the right
+/34$            Match only 34 at end of line
+/^TEST$         Match only lines containing only TEST and not other chars
+/^[a-zA-Z]      Match only the first char on a line that starts with a letter (lower or upper case)
+/^[a-z].*       Match all chars on lines that start with lower case a–z
 /\v(40|44)      Match lines contains 40 OR 44, using easy group syntax \v
-/[0-9]/         Match lines containing digits
-/^[^#]/         Match first character on all lines where that char is NOT #
+/[0-9]          Match lines containing digits
+/^[^#]          Match first character on all lines where that char is NOT #
 ```
-RE Notes:
-- Regular expressions are case sensitive
-- Regular expressions are used where a pattern is specified
-- In a search the end / is not required
 
 
 <br>

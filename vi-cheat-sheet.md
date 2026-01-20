@@ -14,7 +14,7 @@ h j k l     Left down up right (old school, just use arrow keys)
 b w e       Word back / forward / end
 0 $         Start / end of line
 gg  G       First / last line
-#gg #G :#   Go to line given by #, can be more than one digit
+#gg #G :#   Go to line given by #, where # is a number
 H M L       Go to top / middle / bottom of screen
 %           Go to the matching (), {}, []
 ```
@@ -42,7 +42,7 @@ p P         Paste after / before current line
 ```
 x X         Delete char at / before cursor
 dw          Delete word
-dd          Delete line
+dd          Delete line, it is saved to buffer for later paste
 D           Delete to end of line
 ```
 
@@ -59,8 +59,8 @@ n N         Next / previous match
 ## Replace
 ```
 :s/a/b      Replace first a with b (line)
-:s/a/b/g    Replace all on line
-:%s/a/b/g   Replace all in file
+:s/a/b/g    Replace all a on line
+:%s/a/b/g   Replace all a in file
 ```
 
 
@@ -73,6 +73,7 @@ User can prefix most commands with a number:
 ```
 
 ## Ranges
+Ranges can be used with Replace and other commands.
 ```
 :n,m         Lines n–m
 :.           Current line

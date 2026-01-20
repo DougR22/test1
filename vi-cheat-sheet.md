@@ -14,7 +14,7 @@ h j k l     Left down up right (old school, just use arrow keys)
 b w e       Word back / forward / end
 0 $         Start / end of line
 gg  G       First / last line
-ngg nG :n   Go to line n
+#gg #G :#   Go to line given by #, can be more than one digit
 H M L       Go to top / middle / bottom of screen
 %           Go to the matching (), {}, []
 ```
@@ -32,8 +32,8 @@ r R         Replace char at cursor with next char typed / continuously overtype 
 
 ## Copy / Paste
 ```
-yy          Yank (copy) line
-nyy         Yank n lines
+yy          Yank (copy) the current line
+#yy         Yank # lines, # is a number
 p P         Paste after / before current line
 ```
 
@@ -93,7 +93,7 @@ Ctrl-r      Redo
 ## Case / Join
 ```
 ~           Toggle upper/lower case for current char
-n~          Toggle upper/lower case for n chars
+#~          Toggle upper/lower case for # chars
 J           Join lines (move line below to end of current line)
 ```
 
@@ -154,8 +154,8 @@ This is not an exhaustive list of all RE expressions, see help for all.
 ```
 .           Any single character except newline
 *           Zero or more occurrences of any character
-[b-h]       Any single character specified in the set b thru h
-[^k,p,2,4]  Any single character NOT specified in the set [k p 2 4]
+[b-h]       Any single character in the set b thru h
+[^k,p,2,4]  Any single character NOT in the set [k p 2 4]
 ^           Anchor – beginning of the line
 $           Anchor – end of the line
 \<          Anchor – beginning of word

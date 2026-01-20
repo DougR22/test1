@@ -33,7 +33,7 @@ r R         Replace char at cursor with next char typed / continuously overtype 
 ## Copy / Paste
 ```
 yy          Yank (copy) the current line
-#yy         Yank # lines, # is a number
+#yy         Yank # lines, ex: 4yy copies 4 lines
 p P         Paste after / before current line
 ```
 
@@ -58,8 +58,8 @@ n N         Next / previous match
 
 ## Replace
 ```
-:s/a/b      Replace first a with b (line)
-:s/a/b/g    Replace all a on line
+:s/a/b      Replace first a with b on current line
+:s/a/b/g    Replace all a on current line
 :%s/a/b/g   Replace all a in file
 ```
 
@@ -71,6 +71,7 @@ User can prefix most commands with a number:
 4yy         copy 4 lines
 3p          paste buffer content 3 times
 ```
+
 
 ## Ranges
 Ranges can be used with Replace and other commands.
@@ -91,6 +92,7 @@ Ctrl-r      Redo
 .           Repeat last chg
 ```
 
+
 ## Case / Join
 ```
 ~           Toggle upper/lower case for current char
@@ -98,11 +100,13 @@ Ctrl-r      Redo
 J           Join lines (move line below to end of current line)
 ```
 
+
 ## Quit
 ```
 :wq  ZZ     Save (write) and quit
 :q   :q!    Quit / quit without saving
 ```
+
 
 ## Command-Line
 Enter commands for file operations and global actions.  Note that `/` and `?` are also command-line operations.  
@@ -123,6 +127,7 @@ Press `ESC` → return to command mode
 :h  :help       Show help - :q to quit help, note Ctrl-] and Ctrl-O, note window/tab switching below: Ctrl-w T , gt
 ```
 
+
 ## Windows / Tabs
 ```
 vi f1 f2 f3     Open multiple files
@@ -136,6 +141,7 @@ gt              Switch tab
 :q              Quit tab or window
 ```
 
+
 ## Mark
 ```
 m{a-zA-Z}       Mark current position with single letter mark in range {a-zA-Z}
@@ -143,12 +149,14 @@ m{a-zA-Z}       Mark current position with single letter mark in range {a-zA-Z}
 ``              Go to previous position
 ```
 
+
 ## Macros
 ```
 qa              Record macro a
 q               Stop recording
 @a              Play macro a
 ```
+
 
 ## Regular Expressions (RE)
 This is not an exhaustive list of all RE expressions, see help for all.
@@ -166,6 +174,7 @@ $           Anchor – end of the line
 \n          Contents of nth grouping
 ```
 
+
 ## RE - Example Sets
 ```
 [A-Z]       Capital A to Capital Z
@@ -177,6 +186,7 @@ $           Anchor – end of the line
 [0-9 A-F]   Digits + space + A thru F
 [D-U][c-k]  First char any capital letter D thru U, second char lower case only c thru k
 ```
+
 
 ## RE - Search Examples
 ```

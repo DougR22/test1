@@ -53,6 +53,7 @@ D           Delete to end of line
 ?text       Search backward
 n N         Next / previous match
 :noh        Stop hiliting the last search
+%           Go to matching brace, one of: ({[ or )}]
 ```
 
 

@@ -10,13 +10,13 @@ vi, also called vim, has 3 modes:
 ## Movement
 ```
 Scrolling   Mouse/trackpad can be used to scroll the text but not to place cursor for edit
-h j k l     Left down up right (old school, just use arrow keys, Pgup, PgDn)
+h j k l     Left down up right (hold over from 1970s, just use arrow keys, Pgup, PgDn)
 b w e       Word back / forward / end
 0 $         Start / end of line
 gg  G       First / last line
 #gg #G :#   Go to line given by #, where # is a number
 H M L       Go to top / middle / bottom of screen
-%           Go to the matching (), {}, []
+%           Go to the matching brace, meaning: (), {}, []
 ```
 
 
@@ -47,6 +47,15 @@ D           Delete to end of line
 ```
 
 
+## Prefix Count
+User can prefix most commands with a number:
+```
+5dw         delete 5 words
+4yy         copy 4 lines
+3p          paste buffer content 3 times
+```
+
+
 ## Search
 ```
 /text       Search forward
@@ -62,15 +71,7 @@ n N         Next / previous match
 :s/a/b      Replace first a with b on current line
 :s/a/b/g    Replace all a on current line
 :%s/a/b/g   Replace all a in file
-```
-
-
-## Prefix Count
-User can prefix most commands with a number:
-```
-5dw         delete 5 words
-4yy         copy 4 lines
-3p          paste buffer content 3 times
+:4,7s/a/b   On line 4 thru 7, replace only the first a
 ```
 
 

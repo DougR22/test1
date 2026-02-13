@@ -7,10 +7,10 @@ vi, also called vim, has 3 modes:
 - **Command-Line**:  press `:` or `/` or `?` while in command mode, allows user to enter commands that run after pressing **Enter**
 
 
-
 ## Movement
 ```
-h j k l     Left down up right (old school, just use arrow keys)
+Scrolling   Mouse/trackpad can be used to scroll the text but not to place cursor for edit
+h j k l     Left down up right (old school, just use arrow keys, Pgup, PgDn)
 b w e       Word back / forward / end
 0 $         Start / end of line
 gg  G       First / last line
@@ -166,13 +166,19 @@ This is not an exhaustive list of all RE expressions, see help for all.
 *           Zero or more occurrences of any character
 [b-h]       Any single character in the set b thru h
 [^k,p,2,4]  Any single character NOT in the set [k p 2 4]
-^           Anchor – beginning of the line
-$           Anchor – end of the line
-\<          Anchor – beginning of word
-\>          Anchor – end of word
-\( .. \)    Grouping – used to group conditions - do not use, use the easier one on next line
-\v( .. )    Easier VIM based grouping – same as above but eliminates need for \ all over like:  \(  \|  \)
-\n          Contents of nth grouping
+\d \s       d=digit --- s=space (includes tab so whitespace)
+\D \S       Not digit  --- Not space
+^  $        Anchor – beginning of the line --- end of line
+\<  \>      Anchor – beginning of word --- end of word
+\( .. \)    Capture Group – used to group conditions, use the easier one with \v below
+\v          Very magic mode, eliminates need to use escape \ all over the place.  It means that after a \v all ASCII characters except 0-9, a-z, A-Z and _ have special meaning: "very magic".
+\v( .. )    Capture Group, can contain | as in (A|B|C) - meaning A or B or C
+\v%( .. )   Non-capturing group
+\1          Contents of first group, 9 max groups: \1 \2 \3 ... \9
+\n          Newline
+\%u         Multibyte character, eg \%u20ac -- the Euro sign €
+\@=   \@!   Positive and negative lookahead -- see last example in search examples below
+\@<=  \@<!  Positive and negative lookbehind -- no examples below 
 ```
 
 
@@ -199,9 +205,13 @@ $           Anchor – end of the line
 /^TEST$         Match only lines containing only TEST and not other chars
 /^[a-zA-Z]      Match only the first char on a line that starts with a letter (lower or upper case)
 /^[a-z].*       Match all chars on lines that start with lower case a–z
-/\v(40|44)      Match lines contains 40 OR 44, using easy group syntax \v
-/[0-9]          Match lines containing digits
-/^[^#]          Match first character on all lines where that char is NOT #
+/\v(40|44)      Match 40 OR 44, using easy group syntax - use very magic mode \v
+/[0-9]          Match digit
+/^[^#]          Match first character on a line where that char is NOT #
+/fo.*nd         Match line with fo followed later by nd, ex: foreground and fond
+/".*"           Match line with double quoted text
+/\v^([^"])*$    Match line with no quoted text - use very magic mode \v
+/\v^(.*")@!     Result same as above but using negative lookahead @!
 ```
 
 
@@ -211,13 +221,14 @@ $           Anchor – end of the line
 
 ## Not Covered Here
 ```
+Everything RE - see the VIM help
 Tags
 Special keys in insert mode
 Digraphs
 Visual mode - v
 Key mappings
 Abbreviations
-:set options - there are about 300+ options - for full list see help
+:set options - there are about 300+ options - for full list see VIM help
 VIM startup options
 Automatic Commands
 Buffer list commands
